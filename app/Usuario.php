@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
+    protected $remember_token = false;
     protected $table = 'usuarios';
     protected $fillable = [
         'nombres','apellidos','correo','usuario','password','celular','mina_id',
@@ -15,20 +17,20 @@ class Usuario extends Model
         return $this->belongsToMany(Rol::class,'role_user');
     }
 
-    public function setSession($roles){
-        if (count($roles) == 1) {
-            Session::put([
-                'rol_id' => $roles[0]['id'],
-                'rol_nombre' => $roles[0]['nombre'],
-                'usuario' => $this->usuario,
-                'usuario_id' => $this->id,
-                'nombre_usuario' => $this->nombre
-            ]);
-        }
-    }
+    // public function setSession($roles){
+    //     if (count($roles) == 1) {
+    //         Session::put([
+    //             'rol_id' => $roles[0]['id'],
+    //             'rol_nombre' => $roles[0]['nombre'],
+    //             'usuario' => $this->usuario,
+    //             'usuario_id' => $this->id,
+    //             'nombre_usuario' => $this->nombre
+    //         ]);
+    //     }
+    // }
 
-    public function setPasswordAttribute($pass){
-        $this->attributes['password'] = Hash::make($pass);
-    }
+    // public function setPasswordAttribute($pass){
+    //     $this->attributes['password'] = Hash::make($pass);
+    // }
 
 }

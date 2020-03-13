@@ -142,13 +142,12 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                <li ><a  href="{{ route('logout') }}" onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                <li ><a  href="{{ route('logout') }}">
+                      <i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a>
+                    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     @csrf
-                    </form>
+                    </form> --}}
                 </li>
               </ul>
             </nav>
