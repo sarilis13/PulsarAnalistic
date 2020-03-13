@@ -20,6 +20,7 @@ class CrearTablaMinas extends Migration
             $table->string('tipo',100);
             $table->timestamps();
 
+
         });
     }
 

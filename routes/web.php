@@ -14,10 +14,13 @@ Auth::routes();
 Route::redirect('/','login');
 
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /**Route::put('post/{id}', function ($id) {*/
 //Minas
+
+
 Route::post('minas/form', 'MinaController@store')->name('minas.store');
 Route::get('minas', 'MinaController@index')->name('minas.index');
 Route::get('minas/form', 'MinaController@create')->name('minas.create');
@@ -36,7 +39,7 @@ Route::put('rocas/{roca}', 'RocaController@update')->name('rocas.update');
 Route::delete('rocas/{idRoca}', 'RocaController@destroy')->name('rocas.destroy');
 
 //Explosivos
-Route::get('explosivos', 'ExplosivoController@index')->name('explosivos.index');
+Route::get('explosivos', 'ExplosivoController@index')->name('explosivos.index')->middleware('auth');;
 Route::get('explosivos/form', 'ExplosivoController@create')->name('explosivos.create');
 Route::post('explosivos/form', 'ExplosivoController@store')->name('explosivos.store');
 
@@ -62,6 +65,8 @@ Route::post('monitoreos/form', 'MonitoreoController@store')->name('monitoreos.st
 Route::get('monitoreos/{idMonitoreo}', 'MonitoreoController@edit')->name('monitoreos.edit');
 Route::put('monitoreos/{monitoreo}', 'MonitoreoController@update')->name('monitoreos.update');
 Route::delete('monitoreos/{idMonitoreo}', 'MonitoreoController@destroy')->name('monitoreos.destroy');
+
+
 
 //usuarios
 Route::get('usuarios', 'UsuarioController@index')->name('usuarios.index');

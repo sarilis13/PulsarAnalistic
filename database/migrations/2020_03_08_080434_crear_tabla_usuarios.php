@@ -17,9 +17,9 @@ class CrearTablaUsuarios extends Migration
             $table->increments('id');
             $table->string('nombres',100);
             $table->string('apellidos',100);
+            $table->string('correo',100)->unique();
             $table->string('usuario',100)->unique();
             $table->string('password',100);
-            $table->string('correo',100)->unique();
             $table->string('celular',20);
             $table->integer('mina_id')->unsigned();
             $table->timestamps();

@@ -16,13 +16,13 @@ class CrearTablaRoleUser extends Migration
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
             $table->integer('role_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('roles')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('usuario_id')->references('id')->on('usuarios')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
