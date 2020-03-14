@@ -24,16 +24,18 @@ class LoginController extends Controller
         return view('seguridad.index');
     }
 
-    // protected function authenticated(Request $request, $user){
-    //     $roles = $user->roles()->get();
-    //     if ($roles->isNotEmpty()) {
-    //         $user->setSession($roles->toArray());
-    //     }else {
-    //         $this->guard()->logout();
-    //         $request->session()->invalidate();
-    //         return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
-    //     }
-    // }
+    protected function authenticated(Request $request, $user){
+        $roles = $user->rol()->get();
+        //dd($roles);
+        if ($roles->isNotEmpty()) {
+            $user->setSession($roles->toArray());
+
+        }else {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
+        }
+    }
 
     public function username()
     {

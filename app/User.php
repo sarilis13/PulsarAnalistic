@@ -1,33 +1,33 @@
 <?php
 
-namespace App;
+// namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Rol;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Foundation\Auth\User as Authenticatable;
+// use App\Rol;
 
-use Illuminate\Notifications\Notifiable;
+// use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
-    use Notifiable;
+// class User extends Authenticatable
+// {
+//     use Notifiable;
 
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+//     protected $fillable = [
+//         'name', 'email', 'password',
+//     ];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+//     protected $hidden = [
+//         'password', 'remember_token',
+//     ];
 
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+//     protected $casts = [
+//         'email_verified_at' => 'datetime',
+//     ];
 
-    public function roles() {
-        return $this->belongsToMany(Rol::class);
-    }
+//     public function roles() {
+//         return $this->belongsToMany(Rol::class);
+//     }
 
     /**public function authorizeRoles($roles){
         if (is_array($roles)) {
@@ -49,4 +49,4 @@ class User extends Authenticatable
         }
         return false;
     }*/
-}
+// }
